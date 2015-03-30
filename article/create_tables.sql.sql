@@ -1,6 +1,7 @@
 CREATE TABLE `article`(
     `id` INT NOT NULL,
     `title` TEXT NOT NULL,
+    `system_title` TEXT NOT NULL,
     `author` TEXT NOT NULL,
     `date_creation` DATETIME NOT NULL DEFAULT now(),
     `date_modification` DATETIME NULL DEFAULT NULL

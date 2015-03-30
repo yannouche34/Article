@@ -12,6 +12,7 @@ use Framework\Database\Relation;
 class Article extends AbstractEntity {
     public $id;
     public $title;
+    public $systemTitle;
     public $author;
     public $contents;
     
@@ -21,7 +22,20 @@ class Article extends AbstractEntity {
         $this->setTableName('article');
         $this->setIdAttribute('id');
         
-        $this->relations->addItem(new Relation(Relation::ONE_TO_MANY, 'Article\Content', 'article', 'contents'));    
+        $this->relations->addItem(new Relation(Relation::ONE_TO_MANY, 'Article\Content', 'article', 'contents'));
+        $this->fieldsMapping->addItem(new Mapping('systemTitle', 'system_title'));
+    }
+
+    public function addContent(Content $content){
+        $this->contents->addItem($content);
+    }
+
+    public function removeContent($position){
+        $this->contents->removeItem($position);
+    }
+
+    public function clearContents(){
+        $this->contents->clear();
     }
 }
 

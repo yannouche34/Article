@@ -13,7 +13,7 @@ class ArticleManager extends AbstractManager {
     
     public function __construct(){
         parent::__construct();
-        $this->addEntity('article', 'Article\\Entities\Article');
-        $this->addEntity('content', 'Article\\Entities\Content');
+        $this->addEntity('article', 'Article\Entities\Article');
+        $this->addEntity('content', 'Article\Entities\Content');
     }
 }
