@@ -12,6 +12,7 @@ $manager = new ArticleManager();
 
 if(isset($_GET['article_id']) && is_int($_GET['article_id'])){
     $displayer->assign('article', $manager->getArticleById($_GET['article_id']));
+    $displayer->assign('nbContents', $article->contents->count());
 }
 
 if(isset($_POST['article_form_validate'])){
